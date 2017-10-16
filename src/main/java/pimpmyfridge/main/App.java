@@ -1,10 +1,10 @@
 package pimpmyfridge.main;
 
+import pimpmyfridge.View;
 import pimpmyfridge.controller.AbstractController;
 import pimpmyfridge.controller.AppController;
 import pimpmyfridge.model.AbstractModel;
 import pimpmyfridge.model.AppModel;
-import pimpmyfridge.view.View;
 
 /**
  * Main app
