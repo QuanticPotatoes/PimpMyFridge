@@ -2,5 +2,8 @@ package pimpmyfridge.model;
 
 import java.util.Observable;
 
-public class AbstractModel extends Observable {
+public abstract class AbstractModel extends Observable {
+    public abstract int getTemp();
+    public abstract void saveTemp(int temp);
+    public abstract void tooglePop(String type);
 }
