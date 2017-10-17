@@ -3,6 +3,7 @@ package pimpmyfridge.model;
 public class AppModel extends AbstractModel {
 
     private int temp;
+    private int humidity;
 
     public AppModel() {
         this.temp = 0;
@@ -20,5 +21,11 @@ public class AppModel extends AbstractModel {
 
     public void tooglePop(String type) {
 
+    }
+
+    public void saveHumidity(int humidity) {
+        this.humidity = humidity;
+        this.setChanged();
+        this.notifyObservers(this);
     }
 }

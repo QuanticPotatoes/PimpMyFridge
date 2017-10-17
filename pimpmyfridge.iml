@@ -11,13 +11,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
-    <orderEntry type="library" name="Maven: org.ardulink:ardulink-core-base:2.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.ardulink:ardulink-core-util:2.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.ardulink:ardulink-core-beans:2.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-jdk14:1.7.12" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
-    <orderEntry type="library" name="Maven: org.ardulink:ardulink-core-serial-jssc:2.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scream3r:jssc:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.rxtx:rxtx:2.1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
   </component>
 </module>

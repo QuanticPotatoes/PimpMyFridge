@@ -31,6 +31,7 @@ public class View extends JFrame implements Observer {
         this.add(this.testButton);
         this.buttonAction = new ButtonAction(this.controller);
         testButton.addActionListener(buttonAction);
+
     }
 
     private class ButtonAction implements ActionListener {
@@ -41,7 +42,7 @@ public class View extends JFrame implements Observer {
         }
 
         public void actionPerformed(ActionEvent actionEvent) {
-            this.controller.sendTemp(15);
+            this.controller.setTemp(15);
         }
     }
 

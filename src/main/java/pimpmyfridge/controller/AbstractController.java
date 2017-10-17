@@ -13,7 +13,9 @@ public abstract class AbstractController {
      * send the temperature to the model
      * @param temp temperature in °C
      */
-    public abstract void sendTemp(int temp);
+    public abstract void setTemp(int temp);
+
+    public abstract void setHumidity(int humidity);
 
     /**
      * Give the event from the user to close a Pop-Up
