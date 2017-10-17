@@ -19,13 +19,13 @@ public class AppModel extends AbstractModel {
         this.notifyObservers(this);
     }
 
-    public void tooglePop(String type) {
-
-    }
-
     public void saveHumidity(int humidity) {
         this.humidity = humidity;
         this.setChanged();
         this.notifyObservers(this);
+    }
+
+    public void tooglePop(String type) {
+
     }
 }

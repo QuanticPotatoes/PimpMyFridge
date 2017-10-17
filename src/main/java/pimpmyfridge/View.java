@@ -42,7 +42,8 @@ public class View extends JFrame implements Observer {
         }
 
         public void actionPerformed(ActionEvent actionEvent) {
-            this.controller.setTemp(15);
+            // this.controller.setTemp(15);
+            this.controller.sendData(1);
         }
     }
 

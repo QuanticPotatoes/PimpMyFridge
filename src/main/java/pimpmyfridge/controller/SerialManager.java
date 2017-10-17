@@ -7,6 +7,7 @@ import gnu.io.SerialPortEventListener;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Enumeration;
@@ -70,7 +71,6 @@ public class SerialManager implements SerialPortEventListener {
             // open the streams
             input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
             output = serialPort.getOutputStream();
-
             // add event listeners
             serialPort.addEventListener(this);
             serialPort.notifyOnDataAvailable(true);
@@ -88,6 +88,10 @@ public class SerialManager implements SerialPortEventListener {
             serialPort.removeEventListener();
             serialPort.close();
         }
+    }
+
+    public synchronized void send(int b) throws IOException {
+        output.write(b);
     }
 
     /**

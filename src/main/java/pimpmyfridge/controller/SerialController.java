@@ -1,6 +1,8 @@
 package pimpmyfridge.controller;
 import pimpmyfridge.model.AbstractModel;
 
+import java.io.IOException;
+
 public class SerialController extends AbstractController {
 
     private SerialManager serialManager;
@@ -21,6 +23,15 @@ public class SerialController extends AbstractController {
     @Override
     public void setHumidity(int humidity) {
         this.model.saveHumidity(humidity);
+    }
+
+    @Override
+    public void sendData(int b) {
+        try {
+            this.serialManager.send(b);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closePop(String type) {
