@@ -45,9 +45,9 @@ public class SerialController extends AbstractController {
     }
 
     @Override
-    public void sendData(int b) {
+    public void sendData(int type, int value) {
         try {
-            serialManager.send(b);
+            serialManager.send(type, value);
         } catch (IOException e) {
             e.printStackTrace();
         }

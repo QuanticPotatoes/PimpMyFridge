@@ -90,8 +90,9 @@ public class SerialManager implements SerialPortEventListener {
         }
     }
 
-    public synchronized void send(int b) throws IOException {
-        output.write(b);
+    public synchronized void send(int type, int value) throws IOException {
+        output.write(type);
+        output.write(value);
     }
 
     /**
