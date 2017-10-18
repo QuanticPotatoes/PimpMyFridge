@@ -103,7 +103,7 @@ public class SerialManager implements SerialPortEventListener {
                 String inputLine=input.readLine();
                 System.out.println(inputLine);
                 sensor = new JSONObject(inputLine);
-                controller.setTemp((Integer) sensor.get("temp"));
+                controller.update(sensor);
             } catch (Exception e) {
                 System.err.println(e.toString());
             }

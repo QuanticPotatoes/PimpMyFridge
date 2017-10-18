@@ -17,6 +17,12 @@ public abstract class AbstractController {
 
     public abstract void setHumidity(int humidity);
 
+    public abstract void setRosee(int rosee);
+
+    public abstract void setOrder(int order);
+
+    public abstract void update(Object o);
+
     public abstract void sendData(int b);
     /**
      * Give the event from the user to close a Pop-Up

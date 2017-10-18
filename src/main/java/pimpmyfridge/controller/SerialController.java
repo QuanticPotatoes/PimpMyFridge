@@ -1,4 +1,5 @@
 package pimpmyfridge.controller;
+import org.json.JSONObject;
 import pimpmyfridge.model.AbstractModel;
 
 import java.io.IOException;
@@ -10,30 +11,47 @@ public class SerialController extends AbstractController {
     public SerialController(AbstractModel model) {
         super(model);
 
-        this.serialManager = new SerialManager(this);
-        this.serialManager.initialize();
+        serialManager = new SerialManager(this);
+        serialManager.initialize();
     }
 
     @Override
     public void setTemp(int temp) {
-        this.model.saveTemp(temp);
+        this.model.setTemp(temp);
 
     }
 
     @Override
     public void setHumidity(int humidity) {
-        this.model.saveHumidity(humidity);
+        model.setHumidity(humidity);
+    }
+
+    @Override
+    public void setRosee(int rosee) {
+        model.setRosee(rosee);
+    }
+
+    @Override
+    public void setOrder(int order) {
+        model.setOrder(order);
+    }
+
+    @Override
+    public void update(Object o) {
+        JSONObject sensor = (JSONObject) o;
+        setTemp((Integer) sensor.get("temp"));
+        setHumidity((Integer) sensor.get("hum"));
+        setRosee((Integer) sensor.get("rose"));
     }
 
     @Override
     public void sendData(int b) {
         try {
-            this.serialManager.send(b);
+            serialManager.send(b);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     public void closePop(String type) {
 
     }

@@ -13,24 +13,42 @@ public class View extends JFrame implements Observer {
 
     private AbstractController controller;
     private JPanel panel;
-    private JLabel label;
+    private JLabel temp;
     private JButton testButton;
+    private JLabel humidity;
+    private JLabel order;
+    private JLabel rosee;
     private ButtonAction buttonAction;
 
     public View(AbstractController controller) {
         this.controller = controller;
-        this.panel = new JPanel();
-        this.label = new JLabel("test");
-        this.testButton = new JButton("Mon bouton");
-        this.setSize(500,500);
-        this.setTitle("Pimp My Fridge");
-        this.setContentPane(panel);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
-        this.add(this.label);
-        this.add(this.testButton);
-        this.buttonAction = new ButtonAction(this.controller);
+        /**
+         * Instantiation
+         */
+        panel = new JPanel();
+        temp = new JLabel("temp");
+        humidity = new JLabel("hum");
+        order = new JLabel("order");
+        rosee = new JLabel("rosee");
+        testButton = new JButton("Mon bouton");
+        /**
+         * Initialize the Frame
+         */
+        setSize(500,500);
+        setTitle("Pimp My Fridge");
+        setContentPane(panel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        buttonAction = new ButtonAction(controller);
         testButton.addActionListener(buttonAction);
+        /**
+         * Add the component in the view
+         */
+        add(temp);
+        add(testButton);
+        add(humidity);
+        add(order);
+        add(rosee);
 
     }
 
@@ -43,12 +61,14 @@ public class View extends JFrame implements Observer {
 
         public void actionPerformed(ActionEvent actionEvent) {
             // this.controller.setTemp(15);
-            this.controller.sendData(1);
+            controller.sendData(1);
         }
     }
 
     public void update(Observable observable, Object o) {
         AbstractModel model = (AbstractModel) observable;
-        this.label.setText("" + model.getTemp());
+        temp.setText("" + model.getTemp());
+        humidity.setText("" + model.getHumidity());
+        rosee.setText("" + model.getRosee());
     }
 }
