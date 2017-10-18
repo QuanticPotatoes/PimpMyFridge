@@ -3,6 +3,7 @@ package pimpmyfridge.main;
 import pimpmyfridge.View;
 import pimpmyfridge.controller.AbstractController;
 import pimpmyfridge.controller.SerialController;
+import pimpmyfridge.controller.SerialManager;
 import pimpmyfridge.model.AbstractModel;
 import pimpmyfridge.model.AppModel;
 
