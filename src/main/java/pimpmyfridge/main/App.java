@@ -1,18 +1,20 @@
 package pimpmyfridge.main;
 
-import pimpmyfridge.View;
+import javafx.stage.Stage;
 import pimpmyfridge.controller.AbstractController;
 import pimpmyfridge.controller.SerialController;
-import pimpmyfridge.controller.SerialManager;
 import pimpmyfridge.model.AbstractModel;
 import pimpmyfridge.model.AppModel;
+import pimpmyfridge.view.ViewFX;
+import javafx.application.Application;
 
 /**
  * Main app
  *
  */
-public class App
+public class App extends Application
 {
+    private static ViewFX view;
     public static void main( String[] args )
     {
         // Initialize model
@@ -20,8 +22,16 @@ public class App
         // Initialize controller
         AbstractController controller = new SerialController(model);
         // Initialize window
-        View view = new View(controller);
+        view = new ViewFX(controller);
         // Add view to model
         model.addObserver(view);
+
+        //Launch
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        view.start(primaryStage);
     }
 }
