@@ -38,7 +38,6 @@ public class View extends JFrame implements Observer {
         setTitle("Pimp My Fridge");
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
         buttonAction = new ButtonAction(controller);
         testButton.addActionListener(buttonAction);
         /**
@@ -49,6 +48,7 @@ public class View extends JFrame implements Observer {
         add(humidity);
         add(order);
         add(rosee);
+        setVisible(true);
 
     }
 
