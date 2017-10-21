@@ -1,0 +1,40 @@
+#fond
+{
+	-fx-background-color: black;
+}
+
+#container
+{
+	-fx-background-color: white;
+}
+
+
+#graph
+{
+	-fx-background-color: black;
+
+}
+
+.chart-plot-background
+{
+	-fx-background-color: black;
+}
+
+.chart > .chart-title > .text
+{
+	-fx-fill: white;
+	-fx-alignment: right;
+
+}
+
+#ok
+{
+	-fx-background-color: red;
+
+}
+
+#peltier
+{
+	-fx-text-fill: white;
+}
+
