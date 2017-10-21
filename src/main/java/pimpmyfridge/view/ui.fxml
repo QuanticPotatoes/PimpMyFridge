@@ -37,11 +37,11 @@
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <ProgressIndicator id="progresshumidity" layoutX="703.0" layoutY="131.0" prefHeight="143.0" prefWidth="153.0" progress="0.87" />
+                  <ProgressIndicator id="progresshumidity" fx:id="progresshumidity" layoutX="703.0" layoutY="131.0" prefHeight="143.0" prefWidth="153.0" progress="0.87" />
                   <Circle fill="#f5f5f5" layoutX="780.0" layoutY="193.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <JFXToggleButton id="checkon" fx:id="checkon" layoutX="835.0" layoutY="4.0" text="ON / OFF" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
                   <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="385.0" layoutY="244.0" text="Auto" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <Label id="pourcenthumidity" layoutX="750.0" layoutY="176.0" text="80%">
+                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="736.0" layoutY="176.0" text="80.0%">
                      <font>
                         <Font size="29.0" />
                      </font>
