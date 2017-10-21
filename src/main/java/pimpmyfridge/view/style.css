@@ -27,14 +27,36 @@
 
 }
 
-#ok
-{
-	-fx-background-color: red;
-
-}
 
 #peltier
 {
 	-fx-text-fill: white;
 }
 
+.radio-button> .radio
+{
+	-fx-background-color: rgb(223,0,8);
+}
+
+.slider> .thumb
+{
+	-fx-background-color: grey;
+}
+
+.slider> .track
+{
+	
+	-fx-background-color: linear-gradient(to right, white,rgb(229,2,0));
+}
+
+
+
+.progress-indicator:determinate> .determinate-indicator> .percentage
+{
+	-fx-fill: black;
+}
+
+.progress-indicator:determinate> .determinate-indicator> .progress
+{
+	-fx-background-color: #2DA18A;
+}
