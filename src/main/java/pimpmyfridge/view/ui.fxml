@@ -46,6 +46,11 @@
                         <Font size="29.0" />
                      </font>
                   </Label>
+                  <Label id="temp" fx:id="temp" layoutX="138.0" layoutY="145.0" text="17.0°" textFill="WHITE">
+                     <font>
+                        <Font size="79.0" />
+                     </font>
+                  </Label>
                </children></Pane>
             <LineChart id="graph" fx:id="graphpeltier" layoutX="-6.0" layoutY="398.0" prefHeight="156.0" prefWidth="235.0">
               <xAxis>
@@ -92,11 +97,6 @@
             <Label layoutX="478.0" layoutY="213.0" text="Mode" textFill="WHITE">
                <font>
                   <Font size="16.0" />
-               </font>
-            </Label>
-            <Label id="temp" fx:id="temp" layoutX="146.0" layoutY="144.0" text="17°" textFill="WHITE">
-               <font>
-                  <Font size="79.0" />
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="12.0" layoutX="-57.5" layoutY="182.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="245.0" />
