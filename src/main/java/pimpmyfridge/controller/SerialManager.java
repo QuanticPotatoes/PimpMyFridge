@@ -1,5 +1,7 @@
 package pimpmyfridge.controller;
 
+import com.sun.deploy.util.SystemUtils;
+import com.sun.javafx.PlatformUtil;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
@@ -10,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 public class SerialManager implements SerialPortEventListener {
@@ -37,8 +40,9 @@ public class SerialManager implements SerialPortEventListener {
     public void initialize() {
         // the next line is for Raspberry Pi and
         // gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
-        // System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/ttyACM0");
-
+        // if(PlatformUtil.isLinux()) {
+            System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/ttyACM0");
+        // }
         CommPortIdentifier portId = null;
         Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
 
@@ -106,7 +110,8 @@ public class SerialManager implements SerialPortEventListener {
                 sensor = new JSONObject(inputLine);
                 controller.update(sensor);
             } catch (Exception e) {
-                System.err.println(e.toString());
+                System.err.println(e.hashCode());
+                // Close the serialPort
             }
         }
         // Ignore all the other eventTypes, but you should consider the other ones.

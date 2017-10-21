@@ -2,43 +2,53 @@ package pimpmyfridge.model;
 
 public class AppModel extends AbstractModel {
 
-    public int getTemp() {
+    public float getTemp() {
         return temp;
 
     }
 
-    public void setTemp(int temp) {
+    public void setTemp(float temp) {
         this.temp = temp;
         this.setChanged();
         this.notifyObservers(this);
     }
 
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
         this.setChanged();
         this.notifyObservers(this);
     }
 
-    public int getRosee() {
+    public float getRosee() {
         return rosee;
     }
 
-    public void setRosee(int rosee) {
+    public void setRosee(float rosee) {
         this.rosee = rosee;
     }
 
-    public int getOrder() {
+    public float getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(float order) {
         this.order = order;
         this.setChanged();
         this.notifyObservers(this);
+    }
+
+    @Override
+    public float getInside() {
+        return inside;
+    }
+
+    @Override
+    public void setInside(float inside) {
+        this.inside = inside;
     }
 
     public AppModel() {

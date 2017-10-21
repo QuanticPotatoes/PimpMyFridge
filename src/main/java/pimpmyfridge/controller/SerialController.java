@@ -1,4 +1,5 @@
 package pimpmyfridge.controller;
+import com.sun.javafx.PlatformUtil;
 import org.json.JSONObject;
 import pimpmyfridge.model.AbstractModel;
 
@@ -16,23 +17,27 @@ public class SerialController extends AbstractController {
     }
 
     @Override
-    public void setTemp(int temp) {
-        this.model.setTemp(temp);
+    public void setTemp(float temp) {
+        model.setTemp(temp);
 
     }
 
     @Override
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         model.setHumidity(humidity);
     }
 
     @Override
-    public void setRosee(int rosee) {
+    public void setRosee(float rosee) {
         model.setRosee(rosee);
     }
 
+    public void setInside(float inside) {
+        model.setInside(inside);
+    }
+
     @Override
-    public void setOrder(int order) {
+    public void setOrder(float order) {
         model.setOrder(order);
     }
 
@@ -42,8 +47,8 @@ public class SerialController extends AbstractController {
         setTemp((Integer) sensor.get("temp"));
         setHumidity((Integer) sensor.get("hum"));
         setRosee((Integer) sensor.get("rose"));
+        setInside((Integer) sensor.get("inside"));
     }
-
     @Override
     public void sendData(int type, int value) {
         try {
@@ -52,8 +57,13 @@ public class SerialController extends AbstractController {
             e.printStackTrace();
         }
     }
+
     public void closePop(String type) {
 
     }
 
+    @Override
+    public void stop() {
+        serialManager.close();
+    }
 }

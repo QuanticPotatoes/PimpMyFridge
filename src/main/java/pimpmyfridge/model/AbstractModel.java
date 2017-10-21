@@ -4,25 +4,31 @@ import java.util.Observable;
 
 public abstract class AbstractModel extends Observable {
 
-    protected int temp;
-    protected int humidity;
-    protected int rosee;
-    protected int order;
+    protected float temp;
+    protected float inside;
+    protected float humidity;
+    protected float rosee;
+    protected float order;
 
-    public abstract int getTemp();
+    public abstract float getTemp();
 
-    public abstract void setTemp(int temp);
+    public abstract void setTemp(float temp);
 
-    public abstract int getHumidity();
+    public abstract float getHumidity();
 
-    public abstract void setHumidity(int humidity);
+    public abstract void setHumidity(float humidity);
 
-    public abstract int getRosee();
+    public abstract float getRosee();
 
-    public abstract void setRosee(int rosee);
+    public abstract void setRosee(float rosee);
 
-    public abstract int getOrder();
+    public abstract float getOrder();
 
-    public abstract void setOrder(int order);
+    public abstract void setOrder(float order);
+
+    public abstract float getInside();
+
+    public abstract void setInside(float inside);
+
     public abstract void tooglePop(String type);
 }

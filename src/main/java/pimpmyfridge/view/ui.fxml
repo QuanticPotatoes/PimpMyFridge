@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane id="container" maxHeight="-1.0" maxWidth="-1.0" prefHeight="564.0" prefWidth="220.0" VBox.vgrow="ALWAYS">
       <children>
