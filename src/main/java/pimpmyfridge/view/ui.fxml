@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane id="container" maxHeight="-1.0" maxWidth="-1.0" prefHeight="564.0" prefWidth="220.0" VBox.vgrow="ALWAYS">
       <children>
-            <Pane fx:id="fond" layoutX="39.0" layoutY="354.0" prefHeight="200.0" prefWidth="921.0" />
-            <ImageView fitHeight="422.0" fitWidth="1000.0" layoutX="538.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@darkness.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="422.0" fitWidth="1000.0" layoutX="392.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@darkness.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="413.0" fitWidth="422.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@darkness.png" />
-               </image>
-            </ImageView>
+            <Pane fx:id="fond" layoutX="-11.0" layoutY="-6.0" prefHeight="560.0" prefWidth="971.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="70.0" layoutX="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="968.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="70.0" layoutX="-108.0" layoutY="183.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="307.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="70.0" layoutX="3.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="968.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333333" height="70.0" layoutX="782.0" layoutY="177.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="307.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="10.0" layoutX="70.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="822.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="10.0" layoutX="70.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="822.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="12.0" layoutX="770.0" layoutY="188.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="250.5" />
+                  <Label layoutX="342.0" layoutY="8.0" text="PimpMyFridge" textFill="#dad4d4">
+                     <font>
+                        <Font size="47.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="371.0" layoutY="336.0" text="EXIA CESI NANCY" textFill="WHITE">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator id="progresshumidity" layoutX="703.0" layoutY="131.0" prefHeight="143.0" prefWidth="153.0" progress="0.87" />
+                  <Circle fill="#f5f5f5" layoutX="780.0" layoutY="193.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <JFXToggleButton layoutX="835.0" layoutY="4.0" text="ON / OFF" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
+                  <JFXToggleButton layoutX="385.0" layoutY="244.0" text="Auto" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
+                  <Label id="pourcenthumidity" layoutX="750.0" layoutY="176.0" text="80%">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
             <LineChart id="graph" fx:id="graphpeltier" layoutX="-6.0" layoutY="398.0" prefHeight="156.0" prefWidth="235.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
@@ -40,7 +55,6 @@
                 <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
               </yAxis>
             </LineChart>
-            <RadioButton layoutX="415.0" layoutY="122.0" mnemonicParsing="false" text="Auto" textFill="WHITE" />
             <LineChart id="graph" fx:id="graphinterieure" layoutX="246.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
@@ -69,221 +83,23 @@
             <Label id="peltier" layoutX="290.0" layoutY="390.0" text="Température Intérieure °C" />
             <Label id="peltier" layoutX="528.0" layoutY="390.0" text="Température point rosée °C" />
             <Label id="peltier" layoutX="807.0" layoutY="390.0" text="Taux d'humidité %" />
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="65.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="183.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="294.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="773.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="414.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="532.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="650.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="114.0" fitWidth="92.0" layoutX="868.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="468.0" layoutY="1.0" text="PMF" textFill="#828282">
+            <Slider layoutX="389.0" layoutY="157.0" prefHeight="16.0" prefWidth="223.0" />
+            <Label layoutX="448.0" layoutY="111.0" text="Température" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="421.0" layoutY="35.0" text="AFTERBURNER" textFill="#828282">
+            <Label layoutX="478.0" layoutY="213.0" text="Mode" textFill="WHITE">
                <font>
-                  <Font name="System Italic" size="22.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="67.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="113.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="162.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="215.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="265.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="315.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="365.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="415.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="465.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="515.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="565.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="615.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="665.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="715.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="765.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="815.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="865.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="16.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="126.0" fitWidth="258.0" layoutX="-35.0" layoutY="-63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="126.0" layoutX="903.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@naturalblack.png" />
-               </image>
-            </ImageView>
+            <Label layoutX="146.0" layoutY="144.0" text="17°" textFill="WHITE">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d8d8d" height="12.0" layoutX="-57.5" layoutY="182.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="245.0" />
       </children>
     </AnchorPane>
       <Pane id="fond" fx:id="fond1" prefHeight="22.0" prefWidth="968.0" stylesheets="@style.css" />
