@@ -32,7 +32,7 @@
                   <Image url="@darkness.png" />
                </image>
             </ImageView>
-            <LineChart id="graph" fx:id="graph" layoutX="-6.0" layoutY="398.0" prefHeight="156.0" prefWidth="235.0">
+            <LineChart id="graph" fx:id="graphpeltier" layoutX="-6.0" layoutY="398.0" prefHeight="156.0" prefWidth="235.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -41,7 +41,7 @@
               </yAxis>
             </LineChart>
             <RadioButton layoutX="415.0" layoutY="122.0" mnemonicParsing="false" text="Auto" textFill="WHITE" />
-            <LineChart id="graph" fx:id="graph1" layoutX="246.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
+            <LineChart id="graph" fx:id="graphinterieure" layoutX="246.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -49,7 +49,7 @@
                   <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
                </yAxis>
             </LineChart>
-            <LineChart id="graph" fx:id="graph11" layoutX="489.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
+            <LineChart id="graph" fx:id="graphrosee" layoutX="489.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -57,7 +57,7 @@
                   <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
                </yAxis>
             </LineChart>
-            <LineChart id="graph" fx:id="graph111" layoutX="732.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
+            <LineChart id="graph" fx:id="graphhumidity" layoutX="732.0" layoutY="398.0" prefHeight="156.0" prefWidth="228.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
