@@ -1,6 +1,6 @@
 #fond
 {
-	-fx-background-color: black;
+	-fx-background-color: white;
 }
 
 #container
@@ -11,13 +11,13 @@
 
 #graph
 {
-	-fx-background-color: black;
+	-fx-background-color: #454545;
 
 }
 
 .chart-plot-background
 {
-	-fx-background-color: black;
+	-fx-background-color: #454545;
 }
 
 .chart > .chart-title > .text
@@ -46,17 +46,30 @@
 .slider> .track
 {
 	
-	-fx-background-color: linear-gradient(to right, white,rgb(229,2,0));
+	-fx-background-color: rgb(29, 161, 138);
 }
 
 
+.progress-indicator  {
+    -fx-padding: 0 0 -16 0;
+}
 
 .progress-indicator:determinate> .determinate-indicator> .percentage
 {
-	-fx-fill: black;
+	-fx-fill: null;
 }
 
 .progress-indicator:determinate> .determinate-indicator> .progress
 {
 	-fx-background-color: #2DA18A;
+}
+
+.default-color0.chart-series-line { -fx-stroke: #2DA18A; }
+
+.progress-indicator:determinate .determinate-indicator .indicator {
+    -fx-background-color: red;
+}
+
+.progress-indicator:determinate .determinate-indicator .indicator {
+    -fx-padding: 0em;
 }
