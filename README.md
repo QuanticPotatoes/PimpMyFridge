@@ -6,6 +6,10 @@
 * electronic
 * user interface
 
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/7420853/31867292-265999d6-b78d-11e7-9b8b-7b3c8321c61b.gif" width="650px">
+</p>
+
 ## Tools
 
 The application is designed on [Intellij IDEA](https://www.jetbrains.com/idea/).
