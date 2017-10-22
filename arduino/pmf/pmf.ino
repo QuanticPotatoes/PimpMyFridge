@@ -32,6 +32,7 @@ double SteinhartHart(double R)
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
+  pinMode(13,OUTPUT);
   Serial.begin(9600);
   dht.begin();
 
@@ -81,5 +82,5 @@ void loop() {
   root.printTo(Serial);
   Serial.println("");
   delay(3000);
-
+  digitalWrite(13,HIGH);
 }
