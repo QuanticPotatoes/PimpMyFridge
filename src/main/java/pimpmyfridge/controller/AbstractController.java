@@ -31,4 +31,10 @@ public abstract class AbstractController {
     public abstract void closePop(String type);
 
     public abstract void stop();
+
+    public abstract void setGoal(double goal);
+
+    public abstract void setConnected(boolean connected);
+
+    public abstract void launch();
 }

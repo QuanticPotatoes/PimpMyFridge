@@ -15,12 +15,13 @@ import pimpmyfridge.view.ViewFX;
 public class App extends Application
 {
     private static ViewFX view;
+    private static AbstractController controller;
     public static void main( String[] args )
     {
         // Initialize model
         AbstractModel model = new AppModel();
         // Initialize controller
-        AbstractController controller = new SerialController(model);
+        controller = new SerialController(model);
         // Initialize window
         view = new ViewFX(controller);
         // Add view to model
@@ -33,5 +34,6 @@ public class App extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
         view.start(primaryStage);
+        controller.launch();
     }
 }

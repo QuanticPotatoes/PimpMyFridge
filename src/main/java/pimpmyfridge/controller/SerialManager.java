@@ -58,6 +58,8 @@ public class SerialManager implements SerialPortEventListener {
             return;
         }
 
+        controller.setConnected(true);
+
         try {
             // open serial port, and use class name for the appName.
             serialPort = (SerialPort) portId.open(this.getClass().getName(),

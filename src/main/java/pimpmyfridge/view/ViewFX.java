@@ -1,8 +1,11 @@
 package pimpmyfridge.view;
 
 import com.jfoenix.controls.JFXSlider;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +14,11 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import pimpmyfridge.controller.AbstractController;
 import pimpmyfridge.model.AbstractModel;
 
@@ -75,6 +82,12 @@ public class ViewFX extends Application implements Observer {
     public JFXSlider regletemp;
     @FXML
     public Label order;
+    @FXML
+    public ProgressIndicator progresstemp;
+    @FXML
+    public SVGPath usbConnect;
+    @FXML
+    public Label connected;
 
     private Graph peltier;
     private Graph inside;
@@ -108,6 +121,7 @@ public class ViewFX extends Application implements Observer {
         inside = new Graph(graphinterieure);
 
         formatter = new DecimalFormat("##.#");
+
     }
 
     @Override
@@ -125,9 +139,20 @@ public class ViewFX extends Application implements Observer {
                 case "temp":
                     temp.setText(formatter.format(model.getTemp()) + "°");
                     peltier.update(model.getTemp());
+                    Timeline tempTimeline = new Timeline(
+                            new KeyFrame(Duration.ZERO, new KeyValue(progresstemp.progressProperty(),progresstemp.getProgress())),
+                            new KeyFrame(Duration.millis(500), new KeyValue(progresstemp.progressProperty(), model.progressGoal()))
+                    );
+                    tempTimeline.setCycleCount(0);
+                    tempTimeline.play();
                     break;
                 case "humidity":
-                    progresshumidity.setProgress(model.getHumidity() / 100);
+                    Timeline humTimeline = new Timeline(
+                            new KeyFrame(Duration.ZERO, new KeyValue(progresstemp.progressProperty(),progresshumidity.getProgress())),
+                            new KeyFrame(Duration.millis(500), new KeyValue(progresshumidity.progressProperty(), model.getHumidity()/100))
+                    );
+                    humTimeline.setCycleCount(0);
+                    humTimeline.play();
                     pourcenthumidity.setText(formatter.format(model.getHumidity()) + "%");
                     humidity.update(model.getHumidity());
                     break;
@@ -139,6 +164,19 @@ public class ViewFX extends Application implements Observer {
                     break;
                 case "order":
                     order.setText(formatter.format(model.getOrder()) + "°");
+                    break;
+                case "serial":
+                    FillTransition fill = new FillTransition();
+                    fill.setFromValue(Color.web("#aaaaaa"));
+                    fill.setToValue(Color.web("#1DA18A"));
+                    fill.setDelay(Duration.millis(1000));
+                    fill.setDuration(Duration.millis(200));
+                    fill.setShape(usbConnect);
+                    fill.play();
+                    fill.setOnFinished(e -> {
+                        connected.setText("CONNECTÉ");
+                        connected.setTextFill(Paint.valueOf("#1DA18A"));
+                    });
                     break;
                 default:
                     break;
@@ -152,6 +190,7 @@ public class ViewFX extends Application implements Observer {
     }
     @FXML
     public void OnMouseReleased() {
+        controller.setGoal(regletemp.getValue());
         controller.sendData("order", String.valueOf(regletemp.getValue()));
     }
 }

@@ -10,9 +10,7 @@ public class SerialController extends AbstractController {
 
     public SerialController(AbstractModel model) {
         super(model);
-
         serialManager = new SerialManager(this);
-        serialManager.initialize();
     }
 
     @Override
@@ -64,4 +62,20 @@ public class SerialController extends AbstractController {
     public void stop() {
         serialManager.close();
     }
+
+    @Override
+    public void setGoal(double goal) {
+        model.setGoal(goal);
+    }
+
+    @Override
+    public void setConnected(boolean connected) {
+        model.setSerial(connected);
+    }
+
+    @Override
+    public void launch() {
+        serialManager.initialize();
+    }
+
 }

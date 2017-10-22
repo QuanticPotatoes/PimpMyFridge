@@ -9,6 +9,9 @@ public abstract class AbstractModel extends Observable {
     protected double humidity;
     protected double rosee;
     protected double order;
+    protected double goal;
+    protected boolean serial;
+    protected boolean bluetooth;
 
     public abstract double getTemp();
 
@@ -31,4 +34,18 @@ public abstract class AbstractModel extends Observable {
     public abstract void setInside(double inside);
 
     public abstract void tooglePop(String type);
+
+    public abstract double getGoal();
+
+    public abstract boolean isSerial();
+
+    public abstract void setSerial(boolean serial);
+
+    public abstract boolean isBluetooth();
+
+    public abstract void setBluetooth(boolean bluetooth);
+
+    public abstract double progressGoal();
+
+    public abstract void setGoal(double goal);
 }

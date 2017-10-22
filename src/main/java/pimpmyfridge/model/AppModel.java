@@ -62,5 +62,46 @@ public class AppModel extends AbstractModel {
     public void tooglePop(String type) {
 
     }
+
+    @Override
+    public double getGoal() {
+        return goal;
+    }
+
+    @Override
+    public boolean isSerial() {
+        return serial;
+    }
+
+    @Override
+    public void setSerial(boolean serial) {
+        this.serial = serial;
+        setChanged();
+        notifyObservers("serial");
+    }
+
+    @Override
+    public boolean isBluetooth() {
+        return bluetooth;
+    }
+
+    @Override
+    public void setBluetooth(boolean bluetooth) {
+
+    }
+
+    @Override
+    public double progressGoal() {
+        double progress = 1 - (Math.abs(order - temp ) / goal);
+        return (progress < 0)? 0 : progress;
+    }
+
+    @Override
+    public void setGoal(double goal) {
+        /**
+         * Check if the goal is invariant
+         */
+            this.goal = Math.abs(goal - temp);
+    }
 }
 

@@ -3,13 +3,23 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXToggleButton?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane id="container" maxHeight="-1.0" maxWidth="-1.0" prefHeight="564.0" prefWidth="220.0" VBox.vgrow="ALWAYS">
       <children>
@@ -78,7 +88,7 @@
                         <Bloom />
                      </effect>
                   </Line>
-                  <Label layoutX="434.0" layoutY="290.0" text="CONNEXION" textAlignment="CENTER" textFill="#aaaaaa">
+                  <Label fx:id="connected" layoutX="434.0" layoutY="290.0" text="CONNEXION" textAlignment="CENTER" textFill="#aaaaaa">
                      <font>
                         <Font size="19.0" />
                      </font>
