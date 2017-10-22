@@ -49,7 +49,7 @@
                      </font>
                   </Label>
                   <Circle fill="#f5f5f5" layoutX="193.0" layoutY="215.0" radius="92.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                  <Label id="temp" fx:id="temp" layoutX="150.0" layoutY="174.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
+                  <Label id="temp" fx:id="temp" layoutX="135.0" layoutY="171.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -77,7 +77,7 @@
                      </font>
                   </Label>
                   <Line endX="100.0" startX="-100.0" translateX="500.0" />
-                  <ImageView fx:id="usb" fitHeight="68.0" fitWidth="69.0" layoutX="373.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="usb" fitHeight="55.0" fitWidth="55.0" layoutX="369.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@usb.png" />
                      </image>
@@ -87,7 +87,7 @@
                         <Bloom />
                      </effect>
                   </Line>
-                  <ImageView fx:id="bluetooth" fitHeight="68.0" fitWidth="69.0" layoutX="547.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bluetooth" fitHeight="50.0" fitWidth="53.0" layoutX="565.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@bluetooth.png" />
                      </image>
@@ -103,7 +103,7 @@
                      </font>
                   </Label>
                   <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="30.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="45.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@warning.png" />
                      </image>
