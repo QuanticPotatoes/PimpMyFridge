@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane id="container" maxHeight="-1.0" maxWidth="-1.0" prefHeight="564.0" prefWidth="220.0" VBox.vgrow="ALWAYS">
       <children>
@@ -19,7 +29,7 @@
                      <effect>
                         <DropShadow />
                      </effect></Rectangle>
-                  <ProgressIndicator id="progresshumidity" fx:id="progresshumidity1" layoutX="75.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.87" scaleX="1.2" scaleY="1.2" />
+                  <ProgressIndicator id="progresshumidity" fx:id="progresstemp" layoutX="75.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.87" scaleX="0.8" scaleY="0.8" />
                   <Label layoutX="350.0" layoutY="11.0" text="Pimp My Fridge" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="39.0" />
@@ -30,26 +40,26 @@
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <ProgressIndicator id="progresshumidity" fx:id="progresshumidity" layoutX="666.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.85" />
-                  <Circle fill="WHITE" layoutX="784.0" layoutY="216.0" radius="96.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <ProgressIndicator id="progresshumidity" fx:id="progresshumidity" layoutX="666.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.85" scaleX="0.8" scaleY="0.8" />
+                  <Circle fill="WHITE" layoutX="784.0" layoutY="217.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <JFXToggleButton id="checkon" fx:id="checkon" layoutX="835.0" layoutY="4.0" text="ON / OFF" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="738.0" layoutY="200.0" text="80.0%">
+                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="738.0" layoutY="200.0" scaleX="0.8" scaleY="0.8" text="80.0%">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </Label>
-                  <Circle fill="#f5f5f5" layoutX="193.0" layoutY="215.0" radius="92.0" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                  <Label id="temp" fx:id="temp" layoutX="153.0" layoutY="167.0" scaleX="1.2" scaleY="1.2" text="17.0°" textFill="#2c2c2c">
+                  <Circle fill="#f5f5f5" layoutX="193.0" layoutY="215.0" radius="92.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label id="temp" fx:id="temp" layoutX="150.0" layoutY="174.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </Label>
-                  <Line endX="65.0" layoutX="195.0" layoutY="209.0" startX="-70.0" stroke="#656565">
+                  <Line endX="65.0" layoutX="195.0" layoutY="215.0" scaleX="0.8" scaleY="0.8" startX="-70.0" stroke="#656565">
                      <effect>
                         <Bloom />
                      </effect>
                   </Line>
-                  <Label id="temp" fx:id="temp1" layoutX="153.0" layoutY="216.0" scaleX="1.2" scaleY="1.2" text="17.0°" textFill="#2c2c2c">
+                  <Label id="temp" fx:id="temp1" layoutX="158.0" layoutY="220.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -59,13 +69,60 @@
                         <DropShadow color="#b2b2b2" height="18.72" offsetX="1.0" offsetY="1.0" radius="8.67" width="17.96" />
                      </effect>
                   </Rectangle>
-                  <JFXSlider blockIncrement="20.0" layoutX="396.0" layoutY="148.0" prefHeight="15.0" prefWidth="195.0" value="14.0" />
-                  <Label layoutX="411.0" layoutY="91.0" text="TEMPERATURE" textAlignment="CENTER" textFill="#393939">
+                  <JFXSlider fx:id="regletemp" blockIncrement="20.0" layoutX="396.0" layoutY="148.0" prefHeight="15.0" prefWidth="195.0" value="14.0" />
+
+                  <Label layoutX="421.0" layoutY="93.0" text="TEMPERATURE" textAlignment="CENTER" textFill="#393939">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Line endX="100.0" startX="-100.0" translateX="500.0" />
+                  <ImageView fx:id="usb" fitHeight="68.0" fitWidth="69.0" layoutX="373.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@usb.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="65.0" layoutX="495.0" layoutY="257.0" scaleX="1.7" startX="-70.0" stroke="#656565">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Line>
+                  <ImageView fx:id="bluetooth" fitHeight="68.0" fitWidth="69.0" layoutX="547.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@bluetooth.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="440.0" layoutY="291.0" text="CONNECTÉ" textAlignment="CENTER" textFill="#2da18a">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="464.0" layoutY="177.0" text="MODE" textAlignment="CENTER" textFill="#393939">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
+                  <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="266.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@warning.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="indicporte" fx:id="indicporte" layoutX="89.0" layoutY="328.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="214.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@flocon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="cloche" fx:id="cloche" fitHeight="42.0" fitWidth="42.0" layoutX="22.0" layoutY="13.0">
+                     <image>
+                        <Image url="@cloche.png" />
+                     </image>
+                  </ImageView>
                </children></Pane>
             <Label id="peltier" layoutX="57.0" layoutY="390.0" text="Température Peltier °C" />
             <Label id="peltier" layoutX="290.0" layoutY="390.0" text="Température Intérieure °C" />

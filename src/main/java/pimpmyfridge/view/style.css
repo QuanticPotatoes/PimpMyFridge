@@ -67,7 +67,7 @@
 .default-color0.chart-series-line { -fx-stroke: #2DA18A; }
 
 .progress-indicator:determinate .determinate-indicator .indicator {
-    -fx-background-color: red;
+    -fx-background-color: rgb(109,109,109);
 }
 
 .progress-indicator:determinate .determinate-indicator .indicator {
