@@ -108,7 +108,7 @@
                         <Image url="@warning.png" />
                      </image>
                   </ImageView>
-                  <Label id="indicporte" fx:id="indicporte" layoutX="127.0" layoutY="326.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
+                  <Label id="indicporte" fx:id="indicporte" layoutX="114.0" layoutY="325.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
