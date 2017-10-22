@@ -17,37 +17,37 @@ public class SerialController extends AbstractController {
     }
 
     @Override
-    public void setTemp(float temp) {
+    public void setTemp(double temp) {
         model.setTemp(temp);
 
     }
 
     @Override
-    public void setHumidity(float humidity) {
+    public void setHumidity(double humidity) {
         model.setHumidity(humidity);
     }
 
     @Override
-    public void setRosee(float rosee) {
+    public void setRosee(double rosee) {
         model.setRosee(rosee);
     }
 
-    public void setInside(float inside) {
+    public void setInside(double inside) {
         model.setInside(inside);
     }
 
     @Override
-    public void setOrder(float order) {
+    public void setOrder(double order) {
         model.setOrder(order);
     }
 
     @Override
     public void update(Object o) {
         JSONObject sensor = (JSONObject) o;
-        setTemp((Integer) sensor.get("temp"));
-        setHumidity((Integer) sensor.get("hum"));
-        setRosee((Integer) sensor.get("rose"));
-        setInside((Integer) sensor.get("inside"));
+        setTemp((double) sensor.get("temp"));
+        setHumidity((double) sensor.get("hum"));
+        setRosee((double) sensor.get("rosee"));
+        setInside((double) sensor.get("inside"));
     }
     @Override
     public void sendData(int type, int value) {

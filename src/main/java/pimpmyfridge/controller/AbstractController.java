@@ -13,13 +13,13 @@ public abstract class AbstractController {
      * send the temperature to the model
      * @param temp temperature in °C
      */
-    public abstract void setTemp(float temp);
+    public abstract void setTemp(double temp);
 
-    public abstract void setHumidity(float humidity);
+    public abstract void setHumidity(double humidity);
 
-    public abstract void setRosee(float rosee);
+    public abstract void setRosee(double rosee);
 
-    public abstract void setOrder(float order);
+    public abstract void setOrder(double order);
 
     public abstract void update(Object o);
 

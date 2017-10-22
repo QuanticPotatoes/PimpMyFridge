@@ -28,6 +28,7 @@ import pimpmyfridge.model.AbstractModel;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Observable;
@@ -87,6 +88,7 @@ public class ViewFX extends Application implements Observer {
     private Graph inside;
     private Graph humidity;
     private Graph rosee;
+    private DecimalFormat formatter;
 
     public ViewFX(AbstractController controller) {
         this.controller = controller;
@@ -112,6 +114,8 @@ public class ViewFX extends Application implements Observer {
         humidity = new Graph(graphhumidity);
         rosee = new Graph(graphrosee);
         inside = new Graph(graphinterieure);
+
+        formatter = new DecimalFormat("##.#");
     }
 
     @Override
@@ -125,9 +129,9 @@ public class ViewFX extends Application implements Observer {
         AbstractModel model = (AbstractModel) o;
         Platform.runLater(() -> {
 
-            temp.setText(model.getTemp() + "°");
+            temp.setText(formatter.format(model.getTemp()) + "°");
             progresshumidity.setProgress(model.getHumidity() / 100);
-            pourcenthumidity.setText(model.getHumidity() + "%");
+            pourcenthumidity.setText(formatter.format(model.getHumidity()) + "%");
             // update line charts
             peltier.update(model.getTemp());
             humidity.update(model.getHumidity());

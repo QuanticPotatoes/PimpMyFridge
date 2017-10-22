@@ -106,11 +106,11 @@ public class SerialManager implements SerialPortEventListener {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 String inputLine=input.readLine();
-                System.out.println(inputLine);
+                // System.out.println(inputLine);
                 sensor = new JSONObject(inputLine);
                 controller.update(sensor);
             } catch (Exception e) {
-                System.err.println(e.hashCode());
+                System.err.println(e.toString());
                 // Close the serialPort
             }
         }
