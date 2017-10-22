@@ -1,6 +1,8 @@
 #include <math.h>
+#include "ArduinoJson.h"
 #include "Adafruit_Sensor.h"
 #include "DHT.h"
+
 
 #define DHTPIN 2
 #define DHTTYPE DHT22
@@ -36,22 +38,18 @@ void setup() {
 }
 
 void loop() {
+  StaticJsonBuffer<200> jsonBuffer;
+  JsonObject& root = jsonBuffer.createObject();
   //Calcul de la tension sur la borne analogique
   double valeurAnalog = analogRead(PIN_NTC);
   double V =  valeurAnalog / 1024 * V_IN;
 
   //Calcul de la résistance de la thermistance
   double Rth = (Rref * V ) / (V_IN - V);
-  Serial.print("Rth = ");
-  Serial.print(Rth);
-
   //Calcul de la température en kelvin( Steinhart and Hart)
   double kelvin = SteinhartHart(Rth);
   double celsius = kelvin - 273.15; //Conversion en celsius
-  Serial.print("Ohm  -  T = ");
-  Serial.print(celsius);
-  Serial.print("C\n");
-    // Reading temperature or humidity takes about 250 milliseconds!
+  // Reading temperature or humidity takes about 250 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float h = dht.readHumidity();
   // Read temperature as Celsius (the default)
@@ -70,27 +68,17 @@ void loop() {
   // Compute heat index in Celsius (isFahreheit = false)
   float hic = dht.computeHeatIndex(t, h, false);
 
-  float temperature = hic;
+  float temperature = t;
   float humidite = h/100;
 
-  double alpha = (17.27 * temperature)/(237.7 + temperature) + log(humidite);
-  double test = (237.7 * alpha) / (17.27 - alpha);
-  Serial.print("Point de Rosée: ");
-  Serial.print(test);
-  Serial.print(" \n");
-  Serial.print("Humidity: ");
-  Serial.print(h);
-  Serial.print(" %\t");
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.print(" *C ");
-  Serial.print(f);
-  Serial.print(" *F\t");
-  Serial.print("Heat index: ");
-  Serial.print(hic);
-  Serial.print(" *C ");
-  Serial.print(hif);
-  Serial.println(" *F");
+  float alpha = (17.27 * temperature)/(237.7 + temperature) + log(humidite);
+  float rosee = (237.7 * alpha) / (17.27 - alpha);
+  root["temp"] = celsius;
+  root["hum"] = h;
+  root["inside"] = t;
+  root["rosee"] = rosee;
+  root["door"] = random(0,1);
+  root.printTo(Serial);
   delay(3000);
 
 }
