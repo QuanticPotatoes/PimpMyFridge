@@ -1,5 +1,4 @@
 package pimpmyfridge.controller;
-import com.sun.javafx.PlatformUtil;
 import org.json.JSONObject;
 import pimpmyfridge.model.AbstractModel;
 
@@ -19,7 +18,6 @@ public class SerialController extends AbstractController {
     @Override
     public void setTemp(double temp) {
         model.setTemp(temp);
-
     }
 
     @Override
@@ -44,13 +42,13 @@ public class SerialController extends AbstractController {
     @Override
     public void update(Object o) {
         JSONObject sensor = (JSONObject) o;
-        setTemp((double) sensor.get("temp"));
-        setHumidity((double) sensor.get("hum"));
-        setRosee((double) sensor.get("rosee"));
-        setInside((double) sensor.get("inside"));
+        setTemp(Double.valueOf(sensor.get("temp").toString()));
+        setHumidity(Double.valueOf(sensor.get("hum").toString()));
+        setRosee(Double.valueOf(sensor.get("rosee").toString()));
+        setInside(Double.valueOf(sensor.get("inside").toString()));
     }
     @Override
-    public void sendData(int type, int value) {
+    public void sendData(String type, String value) {
         try {
             serialManager.send(type, value);
         } catch (IOException e) {

@@ -45,7 +45,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-      <!-- https://mvnrepository.com/artifact/org.rxtx/rxtx -->
       <dependency>
           <groupId>org.rxtx</groupId>
           <artifactId>rxtx</artifactId>
@@ -61,12 +60,5 @@
           <artifactId>jfoenix</artifactId>
           <version>1.9.0</version>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
-      <dependency>
-          <groupId>de.jensd</groupId>
-          <artifactId>fontawesomefx</artifactId>
-          <version>8.9</version>
-      </dependency>
-
   </dependencies>
 </project>

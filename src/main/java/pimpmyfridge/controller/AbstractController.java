@@ -23,7 +23,7 @@ public abstract class AbstractController {
 
     public abstract void update(Object o);
 
-    public abstract void sendData(int type, int value);
+    public abstract void sendData(String type, String value);
     /**
      * Give the event from the user to close a Pop-Up
      * @param type the type of the Pop-Up

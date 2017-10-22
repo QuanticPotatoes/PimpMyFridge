@@ -1,12 +1,12 @@
 package pimpmyfridge.main;
 
+import javafx.application.Application;
 import javafx.stage.Stage;
 import pimpmyfridge.controller.AbstractController;
 import pimpmyfridge.controller.SerialController;
 import pimpmyfridge.model.AbstractModel;
 import pimpmyfridge.model.AppModel;
 import pimpmyfridge.view.ViewFX;
-import javafx.application.Application;
 
 /**
  * Main app

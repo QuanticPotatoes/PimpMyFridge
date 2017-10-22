@@ -9,8 +9,8 @@ public class AppModel extends AbstractModel {
 
     public void setTemp(double temp) {
         this.temp = temp;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("temp");
     }
 
     public double getHumidity() {
@@ -19,8 +19,8 @@ public class AppModel extends AbstractModel {
 
     public void setHumidity(double humidity) {
         this.humidity = humidity;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("humidity");
     }
 
     public double getRosee() {
@@ -29,6 +29,8 @@ public class AppModel extends AbstractModel {
 
     public void setRosee(double rosee) {
         this.rosee = rosee;
+        setChanged();
+        notifyObservers("rosee");
     }
 
     public double getOrder() {
@@ -37,8 +39,8 @@ public class AppModel extends AbstractModel {
 
     public void setOrder(double order) {
         this.order = order;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("order");
     }
 
     @Override
@@ -49,6 +51,8 @@ public class AppModel extends AbstractModel {
     @Override
     public void setInside(double inside) {
         this.inside = inside;
+        setChanged();
+        notifyObservers("inside");
     }
 
     public AppModel() {
@@ -59,3 +63,4 @@ public class AppModel extends AbstractModel {
 
     }
 }
+

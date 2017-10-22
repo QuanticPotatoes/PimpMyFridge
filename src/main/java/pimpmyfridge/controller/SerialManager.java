@@ -1,7 +1,5 @@
 package pimpmyfridge.controller;
 
-import com.sun.deploy.util.SystemUtils;
-import com.sun.javafx.PlatformUtil;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
@@ -12,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 public class SerialManager implements SerialPortEventListener {
@@ -94,9 +91,11 @@ public class SerialManager implements SerialPortEventListener {
         }
     }
 
-    public synchronized void send(int type, int value) throws IOException {
-        output.write(type);
-        output.write(value);
+    public synchronized void send(String type, String value) throws IOException {
+        JSONObject json = new JSONObject();
+        json.put("type", type);
+        json.put("value", value);
+        output.write(json.toString().getBytes());
     }
 
     /**
