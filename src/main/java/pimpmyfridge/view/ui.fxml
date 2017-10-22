@@ -103,12 +103,12 @@
                      </font>
                   </Label>
                   <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="266.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="262.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@warning.png" />
                      </image>
                   </ImageView>
-                  <Label id="indicporte" fx:id="indicporte" layoutX="89.0" layoutY="328.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
+                  <Label id="indicporte" fx:id="indicporte" layoutX="87.0" layoutY="330.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -118,7 +118,7 @@
                         <Image url="@flocon.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="cloche" fx:id="cloche" fitHeight="42.0" fitWidth="42.0" layoutX="22.0" layoutY="13.0">
+                  <ImageView id="cloche" fx:id="cloche" accessibleRole="BUTTON" fitHeight="42.0" fitWidth="42.0" layoutX="22.0" layoutY="13.0">
                      <image>
                         <Image url="@cloche.png" />
                      </image>
