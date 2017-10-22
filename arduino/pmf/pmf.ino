@@ -79,6 +79,7 @@ void loop() {
   root["rosee"] = rosee;
   root["door"] = random(0,1);
   root.printTo(Serial);
+  Serial.println("");
   delay(3000);
 
 }
