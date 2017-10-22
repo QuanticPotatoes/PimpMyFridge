@@ -10,50 +10,72 @@ public class SerialController extends AbstractController {
 
     public SerialController(AbstractModel model) {
         super(model);
-
         serialManager = new SerialManager(this);
-        serialManager.initialize();
     }
 
     @Override
-    public void setTemp(int temp) {
-        this.model.setTemp(temp);
-
+    public void setTemp(double temp) {
+        model.setTemp(temp);
     }
 
     @Override
-    public void setHumidity(int humidity) {
+    public void setHumidity(double humidity) {
         model.setHumidity(humidity);
     }
 
     @Override
-    public void setRosee(int rosee) {
+    public void setRosee(double rosee) {
         model.setRosee(rosee);
     }
 
+    public void setInside(double inside) {
+        model.setInside(inside);
+    }
+
     @Override
-    public void setOrder(int order) {
+    public void setOrder(double order) {
         model.setOrder(order);
     }
 
     @Override
     public void update(Object o) {
         JSONObject sensor = (JSONObject) o;
-        setTemp((Integer) sensor.get("temp"));
-        setHumidity((Integer) sensor.get("hum"));
-        setRosee((Integer) sensor.get("rose"));
+        setTemp(Double.valueOf(sensor.get("temp").toString()));
+        setHumidity(Double.valueOf(sensor.get("hum").toString()));
+        setRosee(Double.valueOf(sensor.get("rosee").toString()));
+        setInside(Double.valueOf(sensor.get("inside").toString()));
     }
-
     @Override
-    public void sendData(int type, int value) {
+    public void sendData(String type, String value) {
         try {
             serialManager.send(type, value);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void closePop(String type) {
 
+    }
+
+    @Override
+    public void stop() {
+        serialManager.close();
+    }
+
+    @Override
+    public void setGoal(double goal) {
+        model.setGoal(goal);
+    }
+
+    @Override
+    public void setConnected(boolean connected) {
+        model.setSerial(connected);
+    }
+
+    @Override
+    public void launch() {
+        serialManager.initialize();
     }
 
 }

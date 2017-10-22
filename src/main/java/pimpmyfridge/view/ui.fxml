@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="554.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane id="container" maxHeight="-1.0" maxWidth="-1.0" prefHeight="564.0" prefWidth="220.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane fx:id="fond" layoutX="-11.0" layoutY="-6.0" prefHeight="560.0" prefWidth="962.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#454545" height="68.0" layoutX="1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="984.0">
+                     <effect>
+                        <DropShadow />
+                     </effect></Rectangle>
+                  <ProgressIndicator id="progresshumidity" fx:id="progresstemp" layoutX="75.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.87" scaleX="0.8" scaleY="0.8">
+                     <effect>
+                        <DropShadow color="#868686" />
+                     </effect></ProgressIndicator>
+                  <Label layoutX="350.0" layoutY="11.0" text="Pimp My Fridge" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="39.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="371.0" layoutY="336.0" text="EXIA CESI NANCY" textFill="WHITE">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator id="progresshumidity" fx:id="progresshumidity" layoutX="689.0" layoutY="110.0" prefHeight="218.0" prefWidth="235.0" progress="0.85" scaleX="0.8" scaleY="0.8">
+                     <effect>
+                        <DropShadow color="#868686" />
+                     </effect></ProgressIndicator>
+                  <Circle fill="WHITE" layoutX="807.0" layoutY="219.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <JFXToggleButton id="checkon" fx:id="checkon" layoutX="835.0" layoutY="4.0" text="ON / OFF" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
+                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="761.0" layoutY="202.0" scaleX="0.8" scaleY="0.8" text="80.0%">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#f5f5f5" layoutX="193.0" layoutY="218.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label id="temp" fx:id="temp" layoutX="135.0" layoutY="171.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Line endX="65.0" layoutX="195.0" layoutY="215.0" scaleX="0.8" scaleY="0.8" startX="-70.0" stroke="#656565">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Line>
+                  <Label id="temp" fx:id="order" layoutX="158.0" layoutY="220.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="262.0" layoutX="366.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="256.0">
+                     <effect>
+                        <DropShadow color="#b2b2b2" height="18.72" offsetX="1.0" offsetY="1.0" radius="8.67" width="17.96" />
+                     </effect>
+                  </Rectangle>
+                  <JFXSlider fx:id="regletemp" blockIncrement="20.0" layoutX="396.0" layoutY="148.0" max="20" min="14" onMouseDragged="#OnMouseDragged" onMouseReleased="#OnMouseReleased" prefHeight="15.0" prefWidth="195.0" value="14.0" />
+
+                  <Label layoutX="421.0" layoutY="93.0" text="TEMPERATURE" textAlignment="CENTER" textFill="#393939">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="100.0" startX="-100.0" translateX="500.0" />
+                  <Line endX="65.0" layoutX="495.0" layoutY="257.0" scaleX="1.7" startX="-70.0" stroke="#656565">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Line>
+                  <Label fx:id="connected" layoutX="434.0" layoutY="290.0" text="CONNEXION" textAlignment="CENTER" textFill="#aaaaaa">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="464.0" layoutY="177.0" text="MODE" textAlignment="CENTER" textFill="#393939">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
+                  <Label id="indicporte" fx:id="indicporte" layoutX="113.0" layoutY="326.0" text="Porte ouverte" textAlignment="CENTER" textFill="#393939">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <SVGPath fx:id="bluetoothConnect" content="M17.71 7.71L12 2h-1v7.59L6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 11 14.41V22h1l5.71-5.71-4.3-4.29 4.3-4.29zM13 5.83l1.88 1.88L13 9.59V5.83zm1.88 10.46L13 18.17v-3.76l1.88 1.88z" fill="#aaaaaa" layoutX="575.0" layoutY="291.0" scaleX="2.5" scaleY="2.5" />
+                  <SVGPath fx:id="usbConnect" content="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2.07c.7-.37 1.2-1.08 1.2-1.93 0-1.21-.99-2.2-2.2-2.2-1.21 0-2.2.99-2.2 2.2 0 .85.5 1.56 1.2 1.93V13c0 1.11.89 2 2 2h3v3.05c-.71.37-1.2 1.1-1.2 1.95 0 1.22.99 2.2 2.2 2.2 1.21 0 2.2-.98 2.2-2.2 0-.85-.49-1.58-1.2-1.95V15h3c1.11 0 2-.89 2-2v-2h1V7h-4z" fill="#aaaaaa" layoutX="383.0" layoutY="290.0" scaleX="2.5" scaleY="2.5" />
+                  <SVGPath fx:id="warning" content="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" fill="#444444" layoutX="250.0" layoutY="321.0" scaleX="1.5" scaleY="1.5" />
+                  <SVGPath fx:id="frooze" content="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z" fill="#444444" layoutX="210.0" layoutY="178.0" scaleX="1.25" scaleY="1.25" />
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="19.0" text=" ">
+                     <graphic>
+                        <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="WHITE" scaleX="1.5" scaleY="1.5" strokeLineCap="ROUND" />
+                     </graphic>
+                  </JFXButton>
+               </children></Pane>
+            <Label id="peltier" layoutX="57.0" layoutY="390.0" text="Température Peltier °C" />
+            <Label id="peltier" layoutX="290.0" layoutY="390.0" text="Température Intérieure °C" />
+            <Label id="peltier" layoutX="528.0" layoutY="390.0" text="Température point rosée °C" />
+            <Label id="peltier" layoutX="807.0" layoutY="390.0" text="Taux d'humidité %" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#454545" height="185.0" layoutX="-7.0" layoutY="369.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="977.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Rectangle>
+            <LineChart id="graph" fx:id="graphpeltier" layoutX="2.0" layoutY="384.0" prefHeight="156.0" prefWidth="235.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
+              </yAxis>
+            </LineChart>
+            <LineChart id="graph" fx:id="graphhumidity" layoutX="740.0" layoutY="384.0" prefHeight="156.0" prefWidth="228.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+            <LineChart id="graph" fx:id="graphrosee" layoutX="497.0" layoutY="384.0" prefHeight="156.0" prefWidth="228.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+            <LineChart id="graph" fx:id="graphinterieure" layoutX="254.0" layoutY="384.0" prefHeight="156.0" prefWidth="228.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis prefHeight="309.0" prefWidth="30.0" side="LEFT" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+            <Label layoutX="63.0" layoutY="383.0" text="Température peltier" textFill="WHITE" />
+            <Label layoutX="317.0" layoutY="383.0" text="Température frigo" textFill="WHITE" />
+            <Label layoutX="573.0" layoutY="383.0" text="Point de rosée" textFill="WHITE" />
+            <Label layoutX="838.0" layoutY="383.0" text="Humidité" textFill="WHITE" />
+      </children>
+    </AnchorPane>
+      <Pane id="fond" fx:id="fond1" prefHeight="22.0" prefWidth="968.0" stylesheets="@style.css" />
+  </children>
+</VBox>

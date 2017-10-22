@@ -13,20 +13,28 @@ public abstract class AbstractController {
      * send the temperature to the model
      * @param temp temperature in °C
      */
-    public abstract void setTemp(int temp);
+    public abstract void setTemp(double temp);
 
-    public abstract void setHumidity(int humidity);
+    public abstract void setHumidity(double humidity);
 
-    public abstract void setRosee(int rosee);
+    public abstract void setRosee(double rosee);
 
-    public abstract void setOrder(int order);
+    public abstract void setOrder(double order);
 
     public abstract void update(Object o);
 
-    public abstract void sendData(int type, int value);
+    public abstract void sendData(String type, String value);
     /**
      * Give the event from the user to close a Pop-Up
      * @param type the type of the Pop-Up
      */
     public abstract void closePop(String type);
+
+    public abstract void stop();
+
+    public abstract void setGoal(double goal);
+
+    public abstract void setConnected(boolean connected);
+
+    public abstract void launch();
 }

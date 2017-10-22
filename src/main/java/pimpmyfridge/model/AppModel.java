@@ -2,43 +2,57 @@ package pimpmyfridge.model;
 
 public class AppModel extends AbstractModel {
 
-    public int getTemp() {
+    public double getTemp() {
         return temp;
 
     }
 
-    public void setTemp(int temp) {
+    public void setTemp(double temp) {
         this.temp = temp;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("temp");
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("humidity");
     }
 
-    public int getRosee() {
+    public double getRosee() {
         return rosee;
     }
 
-    public void setRosee(int rosee) {
+    public void setRosee(double rosee) {
         this.rosee = rosee;
+        setChanged();
+        notifyObservers("rosee");
     }
 
-    public int getOrder() {
+    public double getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(double order) {
         this.order = order;
-        this.setChanged();
-        this.notifyObservers(this);
+        setChanged();
+        notifyObservers("order");
+    }
+
+    @Override
+    public double getInside() {
+        return inside;
+    }
+
+    @Override
+    public void setInside(double inside) {
+        this.inside = inside;
+        setChanged();
+        notifyObservers("inside");
     }
 
     public AppModel() {
@@ -48,4 +62,46 @@ public class AppModel extends AbstractModel {
     public void tooglePop(String type) {
 
     }
+
+    @Override
+    public double getGoal() {
+        return goal;
+    }
+
+    @Override
+    public boolean isSerial() {
+        return serial;
+    }
+
+    @Override
+    public void setSerial(boolean serial) {
+        this.serial = serial;
+        setChanged();
+        notifyObservers("serial");
+    }
+
+    @Override
+    public boolean isBluetooth() {
+        return bluetooth;
+    }
+
+    @Override
+    public void setBluetooth(boolean bluetooth) {
+
+    }
+
+    @Override
+    public double progressGoal() {
+        double progress = 1 - (Math.abs(order - temp ) / goal);
+        return (progress < 0)? 0 : progress;
+    }
+
+    @Override
+    public void setGoal(double goal) {
+        /**
+         * Check if the goal is invariant
+         */
+            this.goal = Math.abs(goal - temp);
+    }
 }
+

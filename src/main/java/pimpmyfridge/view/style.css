@@ -1,0 +1,75 @@
+#fond
+{
+	-fx-background-color: white;
+}
+
+#container
+{
+	-fx-background-color: white;
+}
+
+
+#graph
+{
+	-fx-background-color: #454545;
+
+}
+
+.chart-plot-background
+{
+	-fx-background-color: #454545;
+}
+
+.chart > .chart-title > .text
+{
+	-fx-fill: white;
+	-fx-alignment: right;
+
+}
+
+
+#peltier
+{
+	-fx-text-fill: white;
+}
+
+.radio-button> .radio
+{
+	-fx-background-color: rgb(223,0,8);
+}
+
+.slider> .thumb
+{
+	-fx-background-color: grey;
+}
+
+.slider> .track
+{
+	
+	-fx-background-color: rgb(29, 161, 138);
+}
+
+
+.progress-indicator  {
+    -fx-padding: 0 0 -16 0;
+}
+
+.progress-indicator:determinate> .determinate-indicator> .percentage
+{
+	-fx-fill: null;
+}
+
+.progress-indicator:determinate> .determinate-indicator> .progress
+{
+	-fx-background-color: #2DA18A;
+}
+
+.default-color0.chart-series-line { -fx-stroke: #2DA18A; }
+
+.progress-indicator:determinate .determinate-indicator .indicator {
+    -fx-background-color: rgb(109,109,109);
+}
+
+.progress-indicator:determinate .determinate-indicator .indicator {
+    -fx-padding: 0em;
+}

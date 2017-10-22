@@ -17,6 +17,9 @@ double B_1 = 2.569850E-4;
 double C_1 = 2.620131E-6;
 double D_1 = 6.383091E-8;
 
+//Consigne
+double order = 20;
+
 double SteinhartHart(double R)
 {
   //Division de l'équation en 4 parties. La premiere est
@@ -32,7 +35,7 @@ double SteinhartHart(double R)
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
   Serial.begin(9600);
   dht.begin();
 
@@ -72,7 +75,7 @@ void loop() {
   float temperature = t;
   float humidite = h/100;
 
-  float alpha = (17.27 * temperature)/(237.7 + temperature) + log(humidite);
+  float alpha = ((17.27 * temperature)/(237.7 + temperature)) + log(humidite);
   float rosee = (237.7 * alpha) / (17.27 - alpha);
   root["temp"] = celsius;
   root["hum"] = h;
@@ -81,6 +84,21 @@ void loop() {
   root["door"] = random(0,1);
   root.printTo(Serial);
   Serial.println("");
+  
+  // send instruction to arduino
+  String reader = Serial.readString();
+  StaticJsonBuffer<200> jsonBufferReader;
+  JsonObject& object = jsonBufferReader.parseObject(reader);
+  if (object["type"] == "order") {
+    order = object["value"];
+  }
+  // control
+  float difference = celsius - order;
+  if(difference > 0.2) {
+    digitalWrite(12, HIGH);
+  } else if (difference < -0.2) {
+    digitalWrite(12, LOW);
+  }
   delay(3000);
-  digitalWrite(13,HIGH);
+  
 }
