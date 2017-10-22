@@ -79,7 +79,7 @@
                   <Line endX="100.0" startX="-100.0" translateX="500.0" />
                   <ImageView fx:id="usb" fitHeight="55.0" fitWidth="55.0" layoutX="369.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@usb.png" />
+                        <Image url="@img/usb.png" />
                      </image>
                   </ImageView>
                   <Line endX="65.0" layoutX="495.0" layoutY="257.0" scaleX="1.7" startX="-70.0" stroke="#656565">
@@ -89,7 +89,7 @@
                   </Line>
                   <ImageView fx:id="bluetooth" fitHeight="50.0" fitWidth="53.0" layoutX="565.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@bluetooth.png" />
+                        <Image url="@img/bluetooth.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="440.0" layoutY="291.0" text="CONNECTÉ" textAlignment="CENTER" textFill="#2da18a">
@@ -105,7 +105,7 @@
                   <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
                   <ImageView id="warning" fx:id="warning" fitHeight="42.0" fitWidth="46.0" layoutX="45.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@warning.png" />
+                        <Image url="@img/warning.png" />
                      </image>
                   </ImageView>
                   <Label id="indicporte" fx:id="indicporte" layoutX="114.0" layoutY="325.0" text="La porte est ouverte" textAlignment="CENTER" textFill="#393939">
@@ -115,12 +115,12 @@
                   </Label>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="214.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@flocon.png" />
+                        <Image url="@img/flocon.png" />
                      </image>
                   </ImageView>
                   <ImageView id="cloche" fx:id="cloche" accessibleRole="BUTTON" fitHeight="42.0" fitWidth="42.0" layoutX="22.0" layoutY="13.0">
                      <image>
-                        <Image url="@cloche.png" />
+                        <Image url="@img/cloche.png" />
                      </image>
                   </ImageView>
                </children></Pane>
