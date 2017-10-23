@@ -19,6 +19,9 @@ double D_1 = 6.383091E-8;
 
 //Consigne
 double order = 20;
+//Power
+boolean power = true;
+boolean frooze = false;
 
 double SteinhartHart(double R)
 {
@@ -81,6 +84,7 @@ void loop() {
   root["hum"] = h;
   root["inside"] = t;
   root["rosee"] = rosee;
+  root["frooze"] = frooze;
   root["door"] = random(0,1);
   root.printTo(Serial);
   Serial.println("");
@@ -91,14 +95,23 @@ void loop() {
   JsonObject& object = jsonBufferReader.parseObject(reader);
   if (object["type"] == "order") {
     order = object["value"];
+  } else if (object["type"] == "power") {
+    power = (object["value"] == "true")? true:false;
   }
   // control
   float difference = celsius - order;
-  if(difference > 0.2) {
-    digitalWrite(12, HIGH);
-  } else if (difference < -0.2) {
-    digitalWrite(12, LOW);
+  if (power == true) {
+    if(difference > 0.2) {
+      frooze = true;
+      digitalWrite(12, frooze);
+    } else if (difference < -0.2) {
+      frooze = false;
+      digitalWrite(12, frooze);
+    }
+  } else {
+    frooze = false;
+    digitalWrite(12, frooze);
   }
-  delay(3000);
+  delay(1000);
   
 }

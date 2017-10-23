@@ -39,11 +39,16 @@ public class SerialController extends AbstractController {
 
     @Override
     public void update(Object o) {
-        JSONObject sensor = (JSONObject) o;
-        setTemp(Double.valueOf(sensor.get("temp").toString()));
-        setHumidity(Double.valueOf(sensor.get("hum").toString()));
-        setRosee(Double.valueOf(sensor.get("rosee").toString()));
-        setInside(Double.valueOf(sensor.get("inside").toString()));
+        try {
+            JSONObject sensor = new JSONObject((String) o);
+            setTemp(sensor.getDouble("temp"));
+            setHumidity(sensor.getDouble("hum"));
+            setRosee(sensor.getDouble("rosee"));
+            setInside(sensor.getDouble("inside"));
+            setFrooze(sensor.getInt("frooze") == 1);
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
     @Override
     public void sendData(String type, String value) {
@@ -77,5 +82,24 @@ public class SerialController extends AbstractController {
     public void launch() {
         serialManager.initialize();
     }
+
+    @Override
+    public void setPower(boolean power) {
+        // True = off
+        // False = on
+        // so we inverse
+        model.setPower(!power);
+        try {
+            serialManager.send("power",String.valueOf(!power));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setFrooze(boolean frooze) {
+        model.setFrooze(frooze);
+    }
+
 
 }

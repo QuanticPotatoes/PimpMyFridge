@@ -12,6 +12,13 @@ public abstract class AbstractModel extends Observable {
     protected double goal;
     protected boolean serial;
     protected boolean bluetooth;
+    protected boolean power;
+    protected boolean frooze;
+
+
+    public abstract boolean isPower();
+
+    public abstract void setPower(boolean power);
 
     public abstract double getTemp();
 
@@ -48,4 +55,8 @@ public abstract class AbstractModel extends Observable {
     public abstract double progressGoal();
 
     public abstract void setGoal(double goal);
+
+    public abstract void setFrooze(Boolean frooze);
+
+    public abstract boolean getFrooze();
 }

@@ -2,6 +2,16 @@ package pimpmyfridge.model;
 
 public class AppModel extends AbstractModel {
 
+    @Override
+    public boolean isPower() {
+        return power;
+    }
+
+    @Override
+    public void setPower(boolean power) {
+        this.power = power;
+    }
+
     public double getTemp() {
         return temp;
 
@@ -102,6 +112,22 @@ public class AppModel extends AbstractModel {
          * Check if the goal is invariant
          */
             this.goal = Math.abs(goal - temp);
+    }
+
+    @Override
+    public void setFrooze(Boolean frooze) {
+        if(this.frooze == frooze) {
+            return;
+        }
+
+        this.frooze = frooze;
+        setChanged();
+        notifyObservers("frooze");
+    }
+
+    @Override
+    public boolean getFrooze() {
+        return frooze;
     }
 }
 

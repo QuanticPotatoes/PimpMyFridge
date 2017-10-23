@@ -1,6 +1,7 @@
 package pimpmyfridge.view;
 
 import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -88,6 +89,10 @@ public class ViewFX extends Application implements Observer {
     public SVGPath usbConnect;
     @FXML
     public Label connected;
+    @FXML
+    public JFXToggleButton power;
+    @FXML
+    public SVGPath frooze;
 
     private Graph peltier;
     private Graph inside;
@@ -120,7 +125,7 @@ public class ViewFX extends Application implements Observer {
         rosee = new Graph(graphrosee);
         inside = new Graph(graphinterieure);
 
-        formatter = new DecimalFormat("##.#");
+        formatter = new DecimalFormat("#0.0");
 
     }
 
@@ -166,18 +171,41 @@ public class ViewFX extends Application implements Observer {
                     order.setText(formatter.format(model.getOrder()) + "°");
                     break;
                 case "serial":
-                    FillTransition fill = new FillTransition();
-                    fill.setFromValue(Color.web("#aaaaaa"));
-                    fill.setToValue(Color.web("#1DA18A"));
-                    fill.setDelay(Duration.millis(1000));
-                    fill.setDuration(Duration.millis(200));
-                    fill.setShape(usbConnect);
-                    fill.play();
-                    fill.setOnFinished(e -> {
-                        connected.setText("CONNECTÉ");
-                        connected.setTextFill(Paint.valueOf("#1DA18A"));
+                    FillTransition serialFill = new FillTransition();
+                    if(model.isSerial()) {
+                        serialFill.setFromValue(Color.web("#aaaaaa"));
+                        serialFill.setToValue(Color.web("#1DA18A"));
+                    } else {
+                        serialFill.setFromValue(Color.web("#1DA18A"));
+                        serialFill.setToValue(Color.web("#aaaaaa"));
+                    }
+                    serialFill.setDelay(Duration.millis(1000));
+                    serialFill.setDuration(Duration.millis(200));
+                    serialFill.setShape(usbConnect);
+                    serialFill.play();
+                    serialFill.setOnFinished(e -> {
+                        if(model.isSerial()){
+                            connected.setText("CONNECTÉ");
+                            connected.setTextFill(Paint.valueOf("#1DA18A"));
+                        } else {
+                            connected.setText("CONNEXION");
+                            connected.setTextFill(Paint.valueOf("#aaaaaa"));
+                        }
                     });
                     break;
+                case "frooze":
+                    FillTransition froozeFill = new FillTransition();
+                    if(model.getFrooze()) {
+                            froozeFill.setFromValue(Color.web("#aaaaaa"));
+                            froozeFill.setToValue(Color.web("#1DA18A"));
+                    } else {
+                            froozeFill.setFromValue(Color.web("#1DA18A"));
+                            froozeFill.setToValue(Color.web("#aaaaaa"));
+                    }
+                    froozeFill.setDelay(Duration.millis(1000));
+                    froozeFill.setDuration(Duration.millis(200));
+                    froozeFill.setShape(frooze);
+                    froozeFill.play();
                 default:
                     break;
             }
@@ -192,5 +220,9 @@ public class ViewFX extends Application implements Observer {
     public void OnMouseReleased() {
         controller.setGoal(regletemp.getValue());
         controller.sendData("order", String.valueOf(regletemp.getValue()));
+    }
+    @FXML
+    public void onPowerClick(){
+        controller.setPower(power.isSelected());
     }
 }
