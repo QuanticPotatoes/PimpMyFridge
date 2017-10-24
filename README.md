@@ -21,7 +21,11 @@ Check also our [Travis](https://travis-ci.com/QuanticPotatoes/pimpmyfridge).
 
 ## Dependencies
 * Maven
-* Swing
+* JUnit
+* JavaFX
+* JFoenix
+* RXTXLib
+* ArduinoJSON
 
 ## Contributors
 
