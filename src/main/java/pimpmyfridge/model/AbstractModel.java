@@ -14,6 +14,7 @@ public abstract class AbstractModel extends Observable {
     protected boolean bluetooth;
     protected boolean power;
     protected boolean frooze;
+    protected boolean door;
 
 
     public abstract boolean isPower();
@@ -58,5 +59,9 @@ public abstract class AbstractModel extends Observable {
 
     public abstract void setFrooze(Boolean frooze);
 
-    public abstract boolean getFrooze();
+    public abstract boolean isFrooze();
+
+    public abstract boolean isDoor();
+
+    public abstract void setDoor(boolean door);
 }

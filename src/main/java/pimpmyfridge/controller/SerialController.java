@@ -46,6 +46,7 @@ public class SerialController extends AbstractController {
             setRosee(sensor.getDouble("rosee"));
             setInside(sensor.getDouble("inside"));
             setFrooze(sensor.getInt("frooze") == 1);
+            setDoor(sensor.getInt("door") == 1);
         } catch (Exception e) {
             System.err.println(e.toString());
         }
@@ -99,6 +100,16 @@ public class SerialController extends AbstractController {
     @Override
     public void setFrooze(boolean frooze) {
         model.setFrooze(frooze);
+    }
+
+    @Override
+    public void setDoor(boolean door) {
+        model.setDoor(door);
+    }
+
+    @Override
+    public void reloadConnect() {
+        serialManager.initialize();
     }
 
 

@@ -29,7 +29,7 @@
                      <effect>
                         <DropShadow />
                      </effect></Rectangle>
-                  <ProgressIndicator id="progresshumidity" fx:id="progresstemp" layoutX="75.0" layoutY="108.0" prefHeight="218.0" prefWidth="235.0" progress="0.87" scaleX="0.8" scaleY="0.8">
+                  <ProgressIndicator id="progresshumidity" fx:id="progresstemp" layoutX="75.0" layoutY="111.0" prefHeight="218.0" prefWidth="235.0" progress="0.87" scaleX="0.8" scaleY="0.8">
                      <effect>
                         <DropShadow color="#868686" />
                      </effect></ProgressIndicator>
@@ -49,13 +49,13 @@
                      </effect></ProgressIndicator>
                   <Circle fill="WHITE" layoutX="807.0" layoutY="219.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <JFXToggleButton id="checkon" fx:id="power" layoutX="835.0" layoutY="4.0" onAction="#onPowerClick" text="ON / OFF" textFill="WHITE" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="761.0" layoutY="202.0" scaleX="0.8" scaleY="0.8" text="80.0%">
+                  <Label id="pourcenthumidity" fx:id="pourcenthumidity" layoutX="758.0" layoutY="199.0" scaleX="0.8" scaleY="0.8" text="N/A%">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </Label>
-                  <Circle fill="#f5f5f5" layoutX="193.0" layoutY="218.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                  <Label id="temp" fx:id="temp" layoutX="135.0" layoutY="171.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
+                  <Circle fill="WHITE" layoutX="193.0" layoutY="219.0" radius="93.0" scaleX="0.8" scaleY="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label id="temp" fx:id="temp" layoutX="135.0" layoutY="171.0" scaleX="0.8" scaleY="0.8" text="N/A°" textFill="#2c2c2c">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -65,7 +65,7 @@
                         <Bloom />
                      </effect>
                   </Line>
-                  <Label id="temp" fx:id="order" layoutX="158.0" layoutY="220.0" scaleX="0.8" scaleY="0.8" text="17.0°" textFill="#2c2c2c">
+                  <Label id="temp" fx:id="order" layoutX="158.0" layoutY="220.0" scaleX="0.8" scaleY="0.8" text="20,0°" textFill="#2c2c2c">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -99,7 +99,7 @@
                      </font>
                   </Label>
                   <JFXToggleButton id="checkauto" fx:id="checkauto" layoutX="432.0" layoutY="202.0" text="AUTO" textFill="#393939" toggleColor="WHITE" toggleLineColor="#f21a1a" unToggleColor="WHITE" unToggleLineColor="#2da18a" />
-                  <Label id="indicporte" fx:id="indicporte" layoutX="113.0" layoutY="326.0" text="Porte ouverte" textAlignment="CENTER" textFill="#393939">
+                  <Label id="indicporte" fx:id="door" layoutX="113.0" layoutY="326.0" text="Porte ouverte" textAlignment="CENTER" textFill="#393939">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -113,6 +113,12 @@
                         <SVGPath content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="WHITE" scaleX="1.5" scaleY="1.5" strokeLineCap="ROUND" />
                      </graphic>
                   </JFXButton>
+                  <JFXButton fx:id="reloadButton" alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="20.0" onMouseClicked="#onReloadClick" text=" ">
+                     <graphic>
+                        <SVGPath fx:id="reloadIcon" content="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" fill="WHITE" scaleX="1.5" scaleY="1.5" strokeLineCap="ROUND" />
+                     </graphic>
+                  </JFXButton>
+                  <SVGPath fx:id="humidityIcon" content="M17.66 8L12 2.35 6.34 8C4.78 9.56 4 11.64 4 13.64s.78 4.11 2.34 5.67 3.61 2.35 5.66 2.35 4.1-.79 5.66-2.35S20 15.64 20 13.64 19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z" fill="#aaaaaa" layoutX="833.0" layoutY="210.0" scaleX="1.25" scaleY="1.25" />
                </children></Pane>
             <Label id="peltier" layoutX="57.0" layoutY="390.0" text="Température Peltier °C" />
             <Label id="peltier" layoutX="290.0" layoutY="390.0" text="Température Intérieure °C" />

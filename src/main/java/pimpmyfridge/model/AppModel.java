@@ -126,8 +126,20 @@ public class AppModel extends AbstractModel {
     }
 
     @Override
-    public boolean getFrooze() {
+    public boolean isFrooze() {
         return frooze;
+    }
+
+    @Override
+    public boolean isDoor() {
+        return door;
+    }
+
+    @Override
+    public void setDoor(boolean door) {
+        this.door = door;
+        setChanged();
+        notifyObservers("door");
     }
 }
 

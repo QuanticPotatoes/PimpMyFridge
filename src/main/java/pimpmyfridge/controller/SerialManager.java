@@ -55,6 +55,7 @@ public class SerialManager implements SerialPortEventListener {
         }
         if (portId == null) {
             System.out.println("Could not find COM port.");
+            close();
             return;
         }
 
@@ -87,10 +88,10 @@ public class SerialManager implements SerialPortEventListener {
      * This will prevent port locking on platforms like Linux.
      */
     public synchronized void close() {
+        controller.setConnected(false);
         if (serialPort != null) {
             serialPort.removeEventListener();
             serialPort.close();
-            controller.setConnected(false);
         }
     }
 
