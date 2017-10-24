@@ -7,6 +7,7 @@ import java.io.IOException;
 public class SerialController extends AbstractController {
 
     private SerialManager serialManager;
+    private boolean bootValue = false;
 
     public SerialController(AbstractModel model) {
         super(model);
@@ -39,11 +40,22 @@ public class SerialController extends AbstractController {
 
     @Override
     public void update(Object o) {
-        JSONObject sensor = (JSONObject) o;
-        setTemp(Double.valueOf(sensor.get("temp").toString()));
-        setHumidity(Double.valueOf(sensor.get("hum").toString()));
-        setRosee(Double.valueOf(sensor.get("rosee").toString()));
-        setInside(Double.valueOf(sensor.get("inside").toString()));
+        try {
+            JSONObject sensor = new JSONObject((String) o);
+            setTemp(sensor.getDouble("temp"));
+            setHumidity(sensor.getDouble("hum"));
+            setRosee(sensor.getDouble("rosee"));
+            setInside(sensor.getDouble("inside"));
+            setFrooze(sensor.getInt("frooze") == 1);
+            setDoor(sensor.getInt("door") == 1);
+
+            if(model.getOrder() != sensor.getDouble("order") && !bootValue) {
+                model.setOrder(sensor.getDouble("order"));
+                bootValue = true;
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
     @Override
     public void sendData(String type, String value) {
@@ -61,6 +73,7 @@ public class SerialController extends AbstractController {
     @Override
     public void stop() {
         serialManager.close();
+        bootValue = false;
     }
 
     @Override
@@ -77,5 +90,34 @@ public class SerialController extends AbstractController {
     public void launch() {
         serialManager.initialize();
     }
+
+    @Override
+    public void setPower(boolean power) {
+        // True = off
+        // False = on
+        // so we inverse
+        model.setPower(!power);
+        try {
+            serialManager.send("power",String.valueOf(!power));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setFrooze(boolean frooze) {
+        model.setFrooze(frooze);
+    }
+
+    @Override
+    public void setDoor(boolean door) {
+        model.setDoor(door);
+    }
+
+    @Override
+    public void reloadConnect() {
+        serialManager.initialize();
+    }
+
 
 }

@@ -4,7 +4,7 @@
 
   <groupId>pimpmyfridge.project</groupId>
   <artifactId>project</artifactId>
-  <version>0.0.1</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>project</name>
@@ -83,6 +83,5 @@
           <artifactId>maven-shade-plugin</artifactId>
           <version>3.1.0</version>
       </dependency>
-
   </dependencies>
 </project>

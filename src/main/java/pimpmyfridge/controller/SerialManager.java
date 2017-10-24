@@ -55,6 +55,7 @@ public class SerialManager implements SerialPortEventListener {
         }
         if (portId == null) {
             System.out.println("Could not find COM port.");
+            close();
             return;
         }
 
@@ -87,6 +88,7 @@ public class SerialManager implements SerialPortEventListener {
      * This will prevent port locking on platforms like Linux.
      */
     public synchronized void close() {
+        controller.setConnected(false);
         if (serialPort != null) {
             serialPort.removeEventListener();
             serialPort.close();
@@ -97,7 +99,11 @@ public class SerialManager implements SerialPortEventListener {
         JSONObject json = new JSONObject();
         json.put("type", type);
         json.put("value", value);
-        output.write(json.toString().getBytes());
+        try {
+            output.write(json.toString().getBytes());
+        } catch (Exception e) {
+
+        }
     }
 
     /**
@@ -107,12 +113,12 @@ public class SerialManager implements SerialPortEventListener {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 String inputLine=input.readLine();
-                // System.out.println(inputLine);
-                sensor = new JSONObject(inputLine);
-                controller.update(sensor);
-            } catch (Exception e) {
-                System.err.println(e.toString());
+                controller.update(inputLine);
+            } catch (IOException e) {
+                System.err.print("Error: ");
                 // Close the serialPort
+                System.err.println(e.toString());
+                close();
             }
         }
         // Ignore all the other eventTypes, but you should consider the other ones.

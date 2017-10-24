@@ -37,4 +37,12 @@ public abstract class AbstractController {
     public abstract void setConnected(boolean connected);
 
     public abstract void launch();
+
+    public abstract void setPower(boolean power);
+
+    public abstract void setFrooze(boolean frooze);
+
+    public abstract void setDoor(boolean door);
+
+    public abstract void reloadConnect();
 }
