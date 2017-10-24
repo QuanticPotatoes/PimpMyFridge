@@ -85,6 +85,8 @@ void loop() {
   root["inside"] = t;
   root["rosee"] = rosee;
   root["frooze"] = frooze;
+  root["order"] = order;
+ 
   root["door"] = random(0,1);
   root.printTo(Serial);
   Serial.println("");
@@ -101,10 +103,10 @@ void loop() {
   // control
   float difference = celsius - order;
   if (power == true) {
-    if(difference > 0.2) {
+    if(difference > 0.05) {
       frooze = true;
       digitalWrite(12, frooze);
-    } else if (difference < -0.2) {
+    } else if (difference < -0.05) {
       frooze = false;
       digitalWrite(12, frooze);
     }

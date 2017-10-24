@@ -177,6 +177,7 @@ public class ViewFX extends Application implements Observer {
                     break;
                 case "order":
                     order.setText(formatter.format(model.getOrder()) + "°");
+                    regletemp.setValue(model.getOrder());
                     break;
                 case "serial":
                     reloadButton.setDisable(model.isSerial());
@@ -245,5 +246,10 @@ public class ViewFX extends Application implements Observer {
         rotateTransition.setCycleCount(Animation.INDEFINITE);
         rotateTransition.play();
         controller.reloadConnect();
+    }
+
+    @FXML
+    public void onBluetoothClick() {
+        controller.stop();
     }
 }

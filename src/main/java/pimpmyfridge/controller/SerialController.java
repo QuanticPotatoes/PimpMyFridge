@@ -7,6 +7,7 @@ import java.io.IOException;
 public class SerialController extends AbstractController {
 
     private SerialManager serialManager;
+    private boolean bootValue = false;
 
     public SerialController(AbstractModel model) {
         super(model);
@@ -47,6 +48,11 @@ public class SerialController extends AbstractController {
             setInside(sensor.getDouble("inside"));
             setFrooze(sensor.getInt("frooze") == 1);
             setDoor(sensor.getInt("door") == 1);
+
+            if(model.getOrder() != sensor.getDouble("order") && !bootValue) {
+                model.setOrder(sensor.getDouble("order"));
+                bootValue = true;
+            }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
@@ -67,6 +73,7 @@ public class SerialController extends AbstractController {
     @Override
     public void stop() {
         serialManager.close();
+        bootValue = false;
     }
 
     @Override

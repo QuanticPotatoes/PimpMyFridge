@@ -114,7 +114,7 @@ public class SerialManager implements SerialPortEventListener {
             try {
                 String inputLine=input.readLine();
                 controller.update(inputLine);
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.err.print("Error: ");
                 // Close the serialPort
                 System.err.println(e.toString());
