@@ -1,4 +1,4 @@
-# Pimp My Fridge &middot; [![Build Status](https://api.travis-ci.com/QuanticPotatoes/pimpmyfridge.svg?token=96ogUtjUhRsWWSJCHi1E&branch=master)](https://travis-ci.com/QuanticPotatoes/pimpmyfridge)
+# Pimp My Fridge &middot; [![Build Status](https://travis-ci.com/QuanticPotatoes/PimpMyFridge.svg?branch=master)](https://travis-ci.com/QuanticPotatoes/pimpmyfridge)
 
 `Pimp My Fridge` is a third year project at CESI Exia covering a wide range of topics :
 * thermodynamics
